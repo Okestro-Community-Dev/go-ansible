@@ -82,6 +82,8 @@ type DefaultExecute struct {
 	Write io.Writer
 	// WriterError is where is written the command stderr
 	WriterError io.Writer
+	// CmdObj is process
+	CmdObj *osexec.Cmd
 }
 
 // NewDefaultExecute return a new DefaultExecute instance with all options
@@ -161,6 +163,7 @@ func (e *DefaultExecute) Execute(ctx context.Context) (err error) {
 	var errCmd error
 	var cmdStderr, cmdStdout io.ReadCloser
 	var wg sync.WaitGroup
+	var isOsExecCmd bool
 
 	errContext := "(execute::DefaultExecute::Execute)"
 
@@ -200,7 +203,8 @@ func (e *DefaultExecute) Execute(ctx context.Context) (err error) {
 	cmd := e.Exec.CommandContext(ctx, command[0], command[1:]...)
 
 	// Assert if cmd's type is the Golang's exec.Cmd as set the desired values for that case
-	_, isOsExecCmd := cmd.(*osexec.Cmd)
+
+	e.CmdObj, isOsExecCmd = cmd.(*osexec.Cmd)
 	if isOsExecCmd {
 		if len(e.CmdRunDir) > 0 {
 			cmd.(*osexec.Cmd).Dir = e.CmdRunDir
@@ -246,7 +250,7 @@ func (e *DefaultExecute) Execute(ctx context.Context) (err error) {
 	}
 
 	// Waig for stdout and stderr
-	wg.Add(2)
+	wg.Add(1)
 
 	// stdout management
 	go func() {
@@ -258,13 +262,6 @@ func (e *DefaultExecute) Execute(ctx context.Context) (err error) {
 
 		wg.Done()
 		execErrChan <- err
-	}()
-
-	// stderr management
-	go func() {
-		// show stderr messages using default stdout callback results
-		e.Output.Print(ctx, cmdStderr, e.WriterError)
-		wg.Done()
 	}()
 
 	wg.Wait()
