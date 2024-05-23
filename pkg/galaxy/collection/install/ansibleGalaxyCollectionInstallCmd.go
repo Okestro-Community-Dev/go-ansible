@@ -3,8 +3,8 @@ package galaxycollectioninstall
 import (
 	"fmt"
 
-	galaxy "github.com/apenella/go-ansible/v2/pkg/galaxy"
-	galaxycollection "github.com/apenella/go-ansible/v2/pkg/galaxy/collection"
+	galaxy "github.com/Okestro-Community-Dev/go-ansible/v2/pkg/galaxy"
+	galaxycollection "github.com/Okestro-Community-Dev/go-ansible/v2/pkg/galaxy/collection"
 )
 
 const (

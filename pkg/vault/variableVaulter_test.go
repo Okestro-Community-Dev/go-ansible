@@ -4,8 +4,8 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/apenella/go-ansible/v2/pkg/vault/encrypt"
-	"github.com/apenella/go-ansible/v2/pkg/vault/password/text"
+	"github.com/Okestro-Community-Dev/go-ansible/v2/pkg/vault/encrypt"
+	"github.com/Okestro-Community-Dev/go-ansible/v2/pkg/vault/password/text"
 	"github.com/go-errors/errors"
 	"github.com/stretchr/testify/assert"
 )

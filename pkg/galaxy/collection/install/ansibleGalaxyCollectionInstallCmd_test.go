@@ -3,8 +3,8 @@ package galaxycollectioninstall
 import (
 	"testing"
 
-	"github.com/apenella/go-ansible/v2/pkg/galaxy"
-	galaxycollection "github.com/apenella/go-ansible/v2/pkg/galaxy/collection"
+	"github.com/Okestro-Community-Dev/go-ansible/v2/pkg/galaxy"
+	galaxycollection "github.com/Okestro-Community-Dev/go-ansible/v2/pkg/galaxy/collection"
 	errors "github.com/apenella/go-common-utils/error"
 	"github.com/stretchr/testify/assert"
 )

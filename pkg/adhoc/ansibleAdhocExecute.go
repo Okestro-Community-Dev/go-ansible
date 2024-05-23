@@ -3,7 +3,7 @@ package adhoc
 import (
 	"context"
 
-	"github.com/apenella/go-ansible/v2/pkg/execute"
+	"github.com/Okestro-Community-Dev/go-ansible/v2/pkg/execute"
 )
 
 // AnsibleAdhocExecute is an executor for ansible command that runs the command using a DefaultExecute with default options

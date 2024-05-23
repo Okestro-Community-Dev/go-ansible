@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/apenella/go-ansible/v2/mocks"
+	"github.com/Okestro-Community-Dev/go-ansible/v2/mocks"
 	"github.com/stretchr/testify/assert"
 )
 

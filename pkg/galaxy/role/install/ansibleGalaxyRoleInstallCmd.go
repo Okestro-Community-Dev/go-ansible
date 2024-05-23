@@ -3,8 +3,8 @@ package galaxyroleinstall
 import (
 	"fmt"
 
-	galaxy "github.com/apenella/go-ansible/v2/pkg/galaxy"
-	galaxyrole "github.com/apenella/go-ansible/v2/pkg/galaxy/role"
+	galaxy "github.com/Okestro-Community-Dev/go-ansible/v2/pkg/galaxy"
+	galaxyrole "github.com/Okestro-Community-Dev/go-ansible/v2/pkg/galaxy/role"
 )
 
 const (
