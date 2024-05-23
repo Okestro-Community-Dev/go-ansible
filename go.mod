@@ -1,4 +1,4 @@
-module github.com/apenella/go-ansible/v2
+module github.com/Okestro-Community-Dev/go-ansible/v2
 
 go 1.22
 
